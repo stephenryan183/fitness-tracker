@@ -2,11 +2,11 @@ const path = require('path');
 const mongoose = require("mongoose");
 const express = require("express");
 const logger = require("morgan");
-
-
-
-
 const exphbs = require('express-handlebars');
+
+
+
+
 
 
 const app = express();
@@ -30,7 +30,8 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout",
+{ useNewUrlParser: true });
 
 app.get('/exercise', (req, res) => {
   
@@ -53,6 +54,14 @@ app.get('/api/workouts', (req, res) => {
         res.json(err);
       });
 })
+
+
+
+
+
+
+
+
 
 app.get('/api/workouts/range', (req, res) => {
     
